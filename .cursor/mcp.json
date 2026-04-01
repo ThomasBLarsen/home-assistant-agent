@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "home-assistant-agent": {
+      "type": "stdio",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\scripts\\run_cursor_mcp.ps1"
+      ],
+      "envFile": "${workspaceFolder}\\.env"
+    }
+  }
+}

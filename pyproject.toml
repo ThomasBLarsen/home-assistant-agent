@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "home-assistant-agent"
+version = "0.1.0"
+description = "Guarded AI tooling for Home Assistant discovery, diagnostics, and cleanup workflows."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "httpx",
+  "mcp",
+  "PyYAML",
+  "typer",
+  "websockets",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "pytest-asyncio",
+]
+
+[project.scripts]
+home-assistant-agent = "home_assistant_agent.cli:main"
+home-assistant-agent-mcp = "home_assistant_agent.mcp_server:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
